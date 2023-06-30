@@ -1,6 +1,6 @@
 # Adroit
 
-## Code for a new bot for The Darkness server for the Defly.io Elite Teams Dark Green Team
+### Code for a new bot for The Darkness server for the Defly.io Elite Teams Dark Green Team
 
 Hope to include many previous things taken care of by other bots. 
 This will take quite a bit of time. May take until late July or even August to see much meaningful progress. 
