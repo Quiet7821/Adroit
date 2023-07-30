@@ -20,4 +20,8 @@ async def on_member_join (member):
 async def ping (ctx): 
 	await ctx.send(f'Pong! {round (client.latency*1000)} ms')
 
+@client.command ()
+async def quit (ctx): 
+	await ctx.send('No, you first!')
+  
 client.run (TOKEN)
