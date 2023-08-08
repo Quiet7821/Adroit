@@ -7,7 +7,7 @@ import os
 TOKEN = os.environ['BOT_TOKEN']
 intents = discord.Intents.all() 
 intents.members = True
-client = commands.Bot (command_prefix = '!', intents = intents)
+client = commands.Bot (command_prefix = ['','!', '/', '?'], intents = intents)
 
 
 @client.event
@@ -25,6 +25,10 @@ async def ping (ctx):
 @client.command ()
 async def quit (ctx): 
 	await ctx.send('No, you first!')
+
+@client.command ()
+async def boo (ctx): 
+	await ctx.send('aahhh!')
 
   
 client.run (TOKEN)
