@@ -28,6 +28,16 @@ async def quit (ctx):
 async def boo (ctx): 
 	await ctx.send('aahhh!')
 
+@client.event
+async def on_message (message): 
+  if message.content == "boo":
+    channel = client.get_channel(message.channel)
+    await channel.send('aahhh!') 
+
+  cyclist =  '🚴'
+  if ("prof") in message.content:
+    await message.add_reaction ( 
+cyclist)
   
 client.run (TOKEN)
 
