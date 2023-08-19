@@ -6,7 +6,7 @@ import os
 TOKEN = os.environ['BOT_TOKEN']
 intents = discord.Intents.all() 
 intents.members = True
-client = commands.Bot (command_prefix = ['','!', '/', '?'], intents = intents)
+client = commands.Bot (command_prefix = ['!', '/', '?'], intents = intents)
 
 
 @client.event
@@ -29,7 +29,7 @@ async def quit (ctx):
 async def boo (ctx): 
 	await ctx.send('aahhh!')
 
-@client.event
+'''@client.event
 async def on_message (message): 
   if message.content == "boo":
     channel = client.get_channel(message.channel)
@@ -38,12 +38,11 @@ async def on_message (message):
   cyclist =  '🚴'
   if ("prof") in message.content:
     await message.add_reaction ( 
-cyclist)
-  
-client.run (TOKEN)
-
+cyclist)'''
 
 @client.tree.command(name="ping", description="Shows the bot's latency in ms")
 async def ping1 (interaction: discord.Interaction): 
 	bot_latency = round (client.latency * 1000)
 	await interaction.response.send_message (f"Pong! {bot_latency} ms")
+  
+client.run (TOKEN)
