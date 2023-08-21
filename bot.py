@@ -12,6 +12,21 @@ client = commands.Bot (command_prefix = ['!', '/', '?'], intents = intents)
 @client.event
 async def on_ready ():
 	print('Bot is ready.')
+	try:
+		synced = await client.tree.sync ()
+		print (f"Synced {len(synced)} command(s)")
+	except Exception as e:
+		print (e)
+ 
+
+@client.tree.command(name="hello")
+async def hello (interaction: discord.Interaction):
+	await interaction.response.send_message (f"Hey {interaction.user.mention}! This is a slash command!")
+
+@client.tree.command (name = "say")
+@app_commands.describe (arg = "What should I say?")
+async def say(interaction: discord.Integration, arg: str): 
+  await interaction.response.send_message(f"{interaction.user.name} said: `{arg}`")
 
 @client.event
 async def on_member_join (member):
@@ -40,9 +55,10 @@ async def on_message (message):
     await message.add_reaction ( 
 cyclist)'''
 
-@client.tree.command(name="ping", description="Shows the bot's latency in ms")
+'''@client.tree.command(name="ping", description="Shows the bot's latency in ms")
 async def ping1 (interaction: discord.Interaction): 
 	bot_latency = round (client.latency * 1000)
-	await interaction.response.send_message (f"Pong! {bot_latency} ms")
-  
+	await interaction.response.send_message (f"Pong! {bot_latency} ms")'''
+
+
 client.run (TOKEN)
