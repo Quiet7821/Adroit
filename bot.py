@@ -19,14 +19,14 @@ async def on_ready ():
 		print (e)
  
 
-@client.tree.command(name="hello")
+@client.tree.command (name="hello")
 async def hello (interaction: discord.Interaction):
 	await interaction.response.send_message (f"Hey {interaction.user.mention}! This is a slash command!")
 
 @client.tree.command (name = "say")
-@app_commands.describe (arg = "What should I say?")
-async def say(interaction: discord.Integration, arg: str): 
-  await interaction.response.send_message(f"{interaction.user.name} said: `{arg}`")
+@app_commands.describe (thing_to_say = "What should I say?")
+async def say (interaction: discord.Integration, thing_to_say: str): 
+  await interaction.response.send_message (f"{interaction.user.name} said: `{thing_to_say}`")
 
 @client.event
 async def on_member_join (member):
@@ -62,3 +62,5 @@ async def ping1 (interaction: discord.Interaction):
 
 
 client.run (TOKEN)
+
+
